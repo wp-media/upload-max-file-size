@@ -137,10 +137,10 @@
 }
 
 .wrapper-compare-imgs {
-    padding: 50px 40px;
+    padding: 50px 40px 40px 40px;
     background: #343A49;
     .twentytwenty-container {
-        height: 360px!important;
+        /* height: 360px!important; */
         img {
             clip: inherit;
         }        
@@ -234,6 +234,33 @@
             right: 50%;
             margin-right: -19px;
             border-left: 8px solid #fff;
+        }
+    }
+    .compare-imgs-txt {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        font-size: 14px;
+        line-height: 18px;
+        .compare-imgs-txt-left {
+            margin-top: 17px;
+        }
+        .compare-imgs-txt-right {
+            text-align: right;
+            margin-top: 17px;
+            p {
+                strong {
+                    color: #8AC34A;
+                }
+            }
+        }
+        p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 18px;
+            strong {
+                color: $bleuclair;
+            }
         }
     }
 }

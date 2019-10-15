@@ -159,6 +159,37 @@ $plugins_block['imagify']->set_button_text( array(
 				<img src="<?php echo $asset_image_url.'bridge-original.jpg'; ?>" alt="">
 				<img src="<?php echo $asset_image_url.'bridge-normal.jpg'; ?>" alt="">
 			</div>
+			<div class="compare-imgs-txt">
+				<div class="compare-imgs-txt-left">
+					<p>
+						<?php
+							printf(
+								__( 'Level : %1$sOriginal%2$s', 'upload-max-file-size' ),
+								'<strong>', '</strong>'
+							);
+						?>
+					</p>
+					<p>
+						<?php esc_html_e( 'File Size : 682kb', 'upload-max-file-size' ); ?>
+					</p>
+				</div>
+				<div class="compare-imgs-txt-right">
+					<p>
+						<?php esc_html_e( 'Level : Ultra', 'upload-max-file-size' ); ?>
+					</p>
+					<p>
+						<?php
+							printf(
+								__( 'File Size : %1$s175kb%2$s', 'upload-max-file-size' ),
+								'<strong>', '</strong>'
+							);
+						?>
+					</p>
+					<p>
+						<?php esc_html_e( 'Original Saving : 74,37%', 'upload-max-file-size' ); ?>
+					</p>
+				</div>
+			</div>
 		</div>
 		<div class="wrapper-content wrapper-install">
 			<div class="txt">

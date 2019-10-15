@@ -602,10 +602,10 @@ b {
           line-height: 33px; }
 
 .wrapper-compare-imgs {
-  padding: 50px 40px;
+  padding: 50px 40px 40px 40px;
   background: #343A49; }
   .wrapper-compare-imgs .twentytwenty-container {
-    height: 360px !important; }
+    /* height: 360px!important; */ }
     .wrapper-compare-imgs .twentytwenty-container img {
       clip: inherit; }
   .wrapper-compare-imgs .txt-title {
@@ -686,6 +686,27 @@ b {
       right: 50%;
       margin-right: -19px;
       border-left: 8px solid #fff; }
+  .wrapper-compare-imgs .compare-imgs-txt {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    color: #fff;
+    font-size: 14px;
+    line-height: 18px; }
+    .wrapper-compare-imgs .compare-imgs-txt .compare-imgs-txt-left {
+      margin-top: 17px; }
+    .wrapper-compare-imgs .compare-imgs-txt .compare-imgs-txt-right {
+      text-align: right;
+      margin-top: 17px; }
+      .wrapper-compare-imgs .compare-imgs-txt .compare-imgs-txt-right p strong {
+        color: #8AC34A; }
+    .wrapper-compare-imgs .compare-imgs-txt p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 18px; }
+      .wrapper-compare-imgs .compare-imgs-txt p strong {
+        color: #40B1D0; }
 
 .wrapper-install {
   background-color: #1F2332;
@@ -731,7 +752,7 @@ b {
 
 .wrap-content-inner .gray-box {
   margin: 0px 20px 0 20px;
-  padding: 30px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   font-size: 14px;
   line-height: 24px;
   background: #F7F7F7; }

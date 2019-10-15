@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Coding Standards">
+    <description>upload-max-file-size dev PHP_CodeSniffer ruleset.</description>
+
+    <arg name="extensions" value="php"/>
+
+    <file>.</file>
+    <!-- Exclude Imagify Partner API. -->
+    <exclude-pattern>UMFS_Imagify_Partner.php</exclude-pattern>
+
+    <rule ref="WordPress">
+        <!-- https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/ -->
+        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+        <exclude name="Squiz.Commenting.FunctionCommentThrowTag"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+        <exclude name="WordPress.Security.EscapeOutput"/>
+    </rule>
+
+    <rule ref="WordPress.Files.FileName">
+        <properties>
+            <property name="strict_class_file_names" value="false" />
+        </properties>
+    </rule>
+</ruleset>
