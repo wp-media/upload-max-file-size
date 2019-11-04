@@ -6,10 +6,10 @@
 defined('ABSPATH') || die('Cheatin\' uh?');
 global $wp_version;
 $heading_tag = version_compare( $wp_version, '4.3' ) >= 0 ? 'h1' : 'h2';
-$notices->echoNotices();
+$notices->echo_notices();
 $plugins_block['imagify']->set_button_text( array(
-	'activated' => esc_html__( 'Activated', 'upload-max-file-size' ),
-	'installed' =>  esc_html__( 'Activate now', 'upload-max-file-size' ),
+	'activated'     => esc_html__( 'Activated', 'upload-max-file-size' ),
+	'installed'     => esc_html__( 'Activate now', 'upload-max-file-size' ),
 	'not_installed' => esc_html__( 'Install now', 'upload-max-file-size' ),
 ) );
 ?>
@@ -19,7 +19,7 @@ $plugins_block['imagify']->set_button_text( array(
 	<div class="header">
 		<div class="header-left">
 			<div class="visuel">
-				<img src="<?php echo $asset_image_url.'logo.svg' ?>" alt="">
+				<img src="<?php echo $asset_image_url . 'logo.svg' ?>" alt="">
 			</div>
 		</div>
 		<div class="header-right">
@@ -47,19 +47,19 @@ $plugins_block['imagify']->set_button_text( array(
 	<div class="wrapper-nav">
 		<h2 class="nav-tab-wrapper">
 			<span class="nav-tab nav-tab-active" data-tab="general-settings"><?php esc_html_e( 'General settings', 'upload-max-file-size' ); ?></span>
-<?php if( !$plugins_block['imagify']->is_activated() ): ?>
+<?php if( ! $plugins_block['imagify']->is_activated() ): ?>
 			<span class="nav-tab" data-tab="more-optimization"><?php esc_html_e( 'More optimization', 'upload-max-file-size' ); ?></span>
 <?php endif; ?>
 			<span class="nav-tab" data-tab="about-us" ><?php esc_html_e( 'About us', 'upload-max-file-size' ); ?></span>
 		</h2>
 	</div>
-	<div id="tab_general-settings" class="tab tab-active"><?php WF_Upload_Max_File_Size::upload_max_file_size_form(); ?></div>
+	<div id="tab_general-settings" class="tab tab-active"><?php Upload_Max_File_Size\WF_Upload_Max_File_Size::upload_max_file_size_form(); ?></div>
 <?php if( !$plugins_block['imagify']->is_activated() ): ?>
 	<div id="tab_more-optimization" class="tab">
 		<div class="wrapper-content wrapper-intro">
 			<div class="wrapper-left">
 				<div class="wrapper-img">
-					<img src="<?php echo $asset_image_url.'Imagify-Logo-Gray-Colored.svg'; ?>" alt="">
+					<img src="<?php echo $asset_image_url . 'Imagify-Logo-Gray-Colored.svg'; ?>" alt="">
 				</div>
 				<div class="wrapper-txt">
 						<?php
@@ -86,7 +86,7 @@ $plugins_block['imagify']->set_button_text( array(
 				<ul>
 					<li>
 						<div class="visuel">
-							<img src="<?php echo $asset_image_url.'fusee.svg'; ?>" alt="">
+							<img src="<?php echo $asset_image_url . 'fusee.svg'; ?>" alt="">
 						</div>
 						<div class="txt-title">
 							<?php
@@ -95,14 +95,14 @@ $plugins_block['imagify']->set_button_text( array(
 									'<strong>', '</strong>'
 								);
 							?>
-						</div>						
+						</div>
 						<div class="txt">
 							<?php esc_html_e( 'With lighter images, you will gain in speed, user experience and even in SEO.', 'upload-max-file-size' ); ?>
 						</div>
 					</li>
 					<li>
 						<div class="visuel">
-							<img src="<?php echo $asset_image_url.'time.svg'; ?>" alt="">
+							<img src="<?php echo $asset_image_url . 'time.svg'; ?>" alt="">
 						</div>
 						<div class="txt-title">
 							<?php
@@ -111,14 +111,14 @@ $plugins_block['imagify']->set_button_text( array(
 									'<strong>', '</strong>'
 								);
 							?>
-						</div>						
+						</div>
 						<div class="txt">
 							<?php esc_html_e( 'Stop fine-tuning your images, they are now automatically optimized.', 'upload-max-file-size' ); ?>
 						</div>
 					</li>
 					<li>
 						<div class="visuel">
-							<img src="<?php echo $asset_image_url.'optimize.svg'; ?>" alt="">
+							<img src="<?php echo $asset_image_url . 'optimize.svg'; ?>" alt="">
 						</div>
 						<div class="txt-title">
 							<?php
@@ -127,14 +127,14 @@ $plugins_block['imagify']->set_button_text( array(
 									'<strong>', '</strong>'
 								);
 							?>
-						</div>						
+						</div>
 						<div class="txt">
 							<?php esc_html_e( 'Optimize pdf, jpg, png and gif formats. And for each image, you also get its WebP version.', 'upload-max-file-size' ); ?>
 						</div>
 					</li>
 					<li>
 						<div class="visuel">
-							<img src="<?php echo $asset_image_url.'quality.svg'; ?>" alt="">
+							<img src="<?php echo $asset_image_url . 'quality.svg'; ?>" alt="">
 						</div>
 						<div class="txt-title">
 							<?php
@@ -143,11 +143,11 @@ $plugins_block['imagify']->set_button_text( array(
 									'<strong>', '</strong>'
 								);
 							?>
-						</div>						
+						</div>
 						<div class="txt">
 							<?php esc_html_e( 'Reduce the weight of your images without sacrificing their quality. They will remain beautiful.', 'upload-max-file-size' ); ?>
 						</div>
-					</li>					
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -156,8 +156,8 @@ $plugins_block['imagify']->set_button_text( array(
 				<?php esc_html_e( 'You will not see any image degradation!', 'upload-max-file-size' ); ?>
 			</div>
 			<div id="container1" class="twentytwenty-container">
-				<img src="<?php echo $asset_image_url.'bridge-original.jpg'; ?>" alt="">
-				<img src="<?php echo $asset_image_url.'bridge-normal.jpg'; ?>" alt="">
+				<img src="<?php echo $asset_image_url . 'bridge-original.jpg'; ?>" alt="">
+				<img src="<?php echo $asset_image_url . 'bridge-normal.jpg'; ?>" alt="">
 			</div>
 			<div class="compare-imgs-txt">
 				<div class="compare-imgs-txt-left">
@@ -211,7 +211,7 @@ $plugins_block['imagify']->set_button_text( array(
 	<div id="tab_about-us" class="tab">
 		<div class="wrapper-top wrapper-info">
 			<div class="top-img">
-				<img src="<?php echo $asset_image_url.'team.jpg'; ?>" alt="">
+				<img src="<?php echo $asset_image_url . 'team.jpg'; ?>" alt="">
 			</div>
 			<div class="top-txt">
 				<h2><?php esc_html_e( 'Welcome to WP Media!', 'upload-max-file-size' ); ?></h2>

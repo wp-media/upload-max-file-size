@@ -10,6 +10,8 @@
  * Text Domain: upload-max-file-size
  */
 
+namespace UMFS;
+
 define( 'UMFS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UMFS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -32,8 +34,8 @@ class WF_Upload_Max_File_Size {
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( __CLASS__, 'plugin_action_links' ) );
 			add_filter( 'plugin_row_meta', array( __CLASS__, 'plugin_meta_links' ), 10, 2 );
 
-			self::process_settings();
 			self::init_card();
+			self::process_settings();
 		}
 
 		add_filter( 'upload_size_limit', array( __CLASS__, 'upload_max_increase_upload' ) );
@@ -45,29 +47,29 @@ class WF_Upload_Max_File_Size {
 	 * @return void
 	 */
 	public static function init_card() {
-		require_once UMFS_PLUGIN_PATH . 'UMFS_Notices.php';
-		require_once UMFS_PLUGIN_PATH . 'UMFS_Imagify_Partner.php';
-		require_once UMFS_PLUGIN_PATH . 'UMFS_Plugin_Card_Helper.php';
+		require_once UMFS_PLUGIN_PATH . 'Notices.php';
+		require_once UMFS_PLUGIN_PATH . 'Imagify_Partner.php';
+		require_once UMFS_PLUGIN_PATH . 'Plugin_Card_Helper.php';
 
-		$imagify_partner = new UMFS_Imagify_Partner( 'upload-max-file-size' );
+		$imagify_partner = new Imagify_Partner( 'upload-max-file-size' );
 		$imagify_partner->init();
 		self::$plugins_block = array(
-			'rocket-lazy-load'  => new UMFS_Plugin_Card_Helper(
+			'rocket-lazy-load'  => new Plugin_Card_Helper(
 				array(
 					'plugin_slug' => 'rocket-lazy-load',
 				)
 			),
-			'heartbeat-control' => new UMFS_Plugin_Card_Helper(
+			'heartbeat-control' => new Plugin_Card_Helper(
 				array(
 					'plugin_slug' => 'heartbeat-control',
 				)
 			),
-			'wp-rocket'         => new UMFS_Plugin_Card_Helper(
+			'wp-rocket'         => new Plugin_Card_Helper(
 				array(
 					'plugin_slug' => 'wp-rocket',
 				)
 			),
-			'imagify'           => new UMFS_Plugin_Card_Helper(
+			'imagify'           => new Plugin_Card_Helper(
 				array(
 					'plugin_slug' => 'imagify',
 				),
@@ -87,7 +89,7 @@ class WF_Upload_Max_File_Size {
 		if ( isset( $_POST['upload_max_file_size_field'], $_POST['upload_max_file_size_nonce'] )
 			&& wp_verify_nonce( sanitize_key( $_POST['upload_max_file_size_nonce'] ), 'upload_max_file_size_action' )
 			&& is_numeric( $_POST['upload_max_file_size_field'] ) ) {
-			$notices  = UMFS_Notices::get_instance();
+			$notices  = Notices::get_instance();
 			$max_size = (int) $_POST['upload_max_file_size_field'] * 1024 * 1024;
 
 			if ( update_option( 'max_file_size', $max_size ) ) {
@@ -188,7 +190,7 @@ class WF_Upload_Max_File_Size {
 	 * @return void
 	 */
 	public static function admin_controller_options() {
-		$notices         = UMFS_Notices::get_instance();
+		$notices         = Notices::get_instance();
 		$plugins_block   = self::$plugins_block;
 		$asset_image_url = UMFS_PLUGIN_URL . 'assets/img/';
 
@@ -250,4 +252,4 @@ class WF_Upload_Max_File_Size {
 	}
 }
 
-add_action( 'init', array( 'WF_Upload_Max_File_Size', 'init' ) );
+add_action( 'init', array( 'Upload_Max_File_Size\WF_Upload_Max_File_Size', 'init' ) );
