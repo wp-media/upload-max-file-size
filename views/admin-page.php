@@ -22,7 +22,7 @@ $plugins_block['imagify']->set_button_text(
 	<div class="header">
 		<div class="header-left">
 			<div class="visuel">
-				<img src="<?php echo $asset_image_url . 'logo.svg'; ?>" alt="">
+				<img src="<?php echo esc_url( $asset_image_url . 'logo.svg' ); ?>" alt="">
 			</div>
 		</div>
 		<div class="header-right">
@@ -63,22 +63,23 @@ $plugins_block['imagify']->set_button_text(
 		<div class="wrapper-content wrapper-intro">
 			<div class="wrapper-left">
 				<div class="wrapper-img">
-					<img src="<?php echo $asset_image_url . 'Imagify-Logo-Gray-Colored.svg'; ?>" alt="">
+					<img src="<?php echo esc_url( $asset_image_url . 'Imagify-Logo-Gray-Colored.svg' ); ?>" alt="">
 				</div>
 				<div class="wrapper-txt">
 					<p>
 					<?php
 					printf(
-						// translators: %1$s %2$s: bold markup.
-						esc_html__( 'Looking for more optimization?%2$s %1$sThen you should use %3$sImagify%4$s to speed up your website with %3$slighter images.%4$s Our algorithms will reduce the weight of your images without sacrificing their quality.', 'upload-max-file-size' ),
+						// translators: %1$s %2$s: bold markup, %3$s: break line.
+						esc_html__( 'Looking for more optimization?%3$sThen you should use %1$sImagify%2$s to speed up your website with %1$slighter images%2$s. Our algorithms will reduce the weight of your images without sacrificing their quality.', 'upload-max-file-size' ),
 						'<strong>',
-						'</strong>'
+						'</strong>',
+						'<br/>'
 					);
 					?>
 					</p>
 				</div>
-				<a class="btn referer-link <?php echo esc_attr( $plugins_block['imagify']->get_status() ); ?>" href="<?php echo $plugins_block['imagify']->get_install_url(); ?>">
-					<?php echo $plugins_block['imagify']->get_button_text(); ?>
+				<a class="btn referer-link <?php echo esc_attr( $plugins_block['imagify']->get_status() ); ?>" href="<?php echo esc_url( $plugins_block['imagify']->get_install_url() ); ?>">
+					<?php echo esc_html( $plugins_block['imagify']->get_button_text() ); ?>
 				</a>
 				<div class="wrapper-img"></div>
 			</div>
@@ -94,7 +95,7 @@ $plugins_block['imagify']->set_button_text(
 				<ul>
 					<li>
 						<div class="visuel">
-							<img src="<?php echo $asset_image_url . 'fusee.svg'; ?>" alt="">
+							<img src="<?php echo esc_url( $asset_image_url . 'fusee.svg' ); ?>" alt="">
 						</div>
 						<div class="txt-title">
 							<?php
@@ -112,7 +113,7 @@ $plugins_block['imagify']->set_button_text(
 					</li>
 					<li>
 						<div class="visuel">
-							<img src="<?php echo $asset_image_url . 'time.svg'; ?>" alt="">
+							<img src="<?php echo esc_url( $asset_image_url . 'time.svg' ); ?>" alt="">
 						</div>
 						<div class="txt-title">
 							<?php
@@ -130,7 +131,7 @@ $plugins_block['imagify']->set_button_text(
 					</li>
 					<li>
 						<div class="visuel">
-							<img src="<?php echo $asset_image_url . 'optimize.svg'; ?>" alt="">
+							<img src="<?php echo esc_url( $asset_image_url . 'optimize.svg' ); ?>" alt="">
 						</div>
 						<div class="txt-title">
 							<?php
@@ -148,7 +149,7 @@ $plugins_block['imagify']->set_button_text(
 					</li>
 					<li>
 						<div class="visuel">
-							<img src="<?php echo $asset_image_url . 'quality.svg'; ?>" alt="">
+							<img src="<?php echo esc_url( $asset_image_url . 'quality.svg' ); ?>" alt="">
 						</div>
 						<div class="txt-title">
 							<?php
@@ -172,8 +173,8 @@ $plugins_block['imagify']->set_button_text(
 				<?php esc_html_e( 'You will not see any image degradation!', 'upload-max-file-size' ); ?>
 			</div>
 			<div id="container1" class="twentytwenty-container">
-				<img src="<?php echo $asset_image_url . 'bridge-original.jpg'; ?>" alt="">
-				<img src="<?php echo $asset_image_url . 'bridge-normal.jpg'; ?>" alt="">
+				<img src="<?php echo esc_url( $asset_image_url . 'bridge-original.jpg' ); ?>" alt="">
+				<img src="<?php echo esc_url( $asset_image_url . 'bridge-normal.jpg' ); ?>" alt="">
 			</div>
 			<div class="compare-imgs-txt">
 				<div class="compare-imgs-txt-left">
@@ -222,8 +223,8 @@ $plugins_block['imagify']->set_button_text(
 				?>
 			</div>
 			<div class="install-btn">
-				<a class="btn referer-link <?php echo esc_attr( $plugins_block['imagify']->get_status() ); ?>" href="<?php echo $plugins_block['imagify']->get_install_url(); ?>">
-					<?php echo $plugins_block['imagify']->get_button_text(); ?>
+				<a class="btn referer-link <?php echo esc_attr( $plugins_block['imagify']->get_status() ); ?>" href="<?php echo esc_url( $plugins_block['imagify']->get_install_url() ); ?>">
+					<?php echo esc_html( $plugins_block['imagify']->get_button_text() ); ?>
 				</a>
 			</div>
 		</div>
@@ -232,7 +233,7 @@ $plugins_block['imagify']->set_button_text(
 	<div id="tab_about-us" class="tab">
 		<div class="wrapper-top wrapper-info">
 			<div class="top-img">
-				<img src="<?php echo $asset_image_url . 'team.jpg'; ?>" alt="">
+				<img src="<?php echo esc_url( $asset_image_url . 'team.jpg' ); ?>" alt="">
 			</div>
 			<div class="top-txt">
 				<h2><?php esc_html_e( 'Welcome to WP Media!', 'upload-max-file-size' ); ?></h2>
