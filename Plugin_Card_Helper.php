@@ -142,7 +142,7 @@ class Plugin_Card_Helper {
 			return;
 		}
 
-		$this->plugin_slug   = preg_replace( '@[^a-z0-9_-]@', '', strtolower( (string) $this->args['plugin_slug'] ) );
+		$this->plugin_slug = preg_replace( '@[^a-z0-9_-]@', '', strtolower( (string) $this->args['plugin_slug'] ) );
 
 		if ( isset( $this->args['params'] ) ) {
 			$this->params = wp_parse_args( $this->args['params'], $this->params );
@@ -476,9 +476,27 @@ class Plugin_Card_Helper {
 				wp_safe_redirect( wp_get_referer() );
 			}
 
-			$notices->append( 'success', __( 'This plugin has been successfully installed and activated.', 'heartbeat-control' ) );
+			$notices->append(
+				'success',
+				sprintf(
+					// translators: %1$s %2$s: bold markup, %3$s: plugin title.
+					esc_html__( '%1$s%3$s%2$s has been successfully installed and activated.' ),
+					'<strong>',
+					'</strong>',
+					$this->get_title()
+				)
+			);
 		} else {
-			$notices->append( 'success', __( 'This plugin has been successfully installed.', 'heartbeat-control' ) );
+			$notices->append(
+				'success',
+				sprintf(
+					// translators: %1$s %2$s: bold markup, %3$s: plugin title.
+					esc_html__( '%1$s%3$s%2$s has been successfully installed.' ),
+					'<strong>',
+					'</strong>',
+					$this->get_title()
+				)
+			);
 		}
 
 		wp_safe_redirect( wp_get_referer() );
@@ -507,7 +525,16 @@ class Plugin_Card_Helper {
 			wp_safe_redirect( wp_get_referer() );
 		}
 
-		$notices->append( 'success', __( 'This plugin has been successfully activated.', 'heartbeat-control' ) );
+		$notices->append(
+			'success',
+			sprintf(
+				// translators: %1$s %2$s: bold markup, %3$s: plugin title.
+				esc_html__( '%1$s%3$s%2$s has been successfully activated.' ),
+				'<strong>',
+				'</strong>',
+				$this->get_title()
+			)
+		);
 
 		wp_safe_redirect( wp_get_referer() );
 	}
@@ -622,7 +649,7 @@ class Plugin_Card_Helper {
 				<a class="link-btn button-primary referer-link <?php echo esc_attr( $this->get_status() ); ?>" href="<?php echo esc_url( $this->get_install_url() ); ?>"><?php echo esc_html( $this->get_button_text() ); ?></a>
 			<?php endif; ?>
 		</div>
-	<?php
+		<?php
 	}
 
 	// -- tools
