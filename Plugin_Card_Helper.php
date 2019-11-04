@@ -632,8 +632,8 @@ class Plugin_Card_Helper {
 		$template_args = $this->template_args;
 		$helper        = $this;
 		$file_paths    = array(
-			'views/plugin-cards/' . $this->plugin_slug . '.php',
-			'views/plugin-cards/default.php',
+			plugin_dir_path( __FILE__ ) . 'views/plugin-cards/' . $this->plugin_slug . '.php',
+			plugin_dir_path( __FILE__ ) . 'views/plugin-cards/default.php',
 		);
 
 		foreach ( $file_paths as $fp ) {
