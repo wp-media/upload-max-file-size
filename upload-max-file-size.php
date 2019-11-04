@@ -114,9 +114,6 @@ class Plugin {
 							'</strong>'
 						),
 					),
-				),
-				array(
-					'imagify_partner' => $imagify_partner,
 				)
 			),
 		);
