@@ -270,9 +270,9 @@ class Plugin_Card_Helper {
 	public function get_status_text( $status = null ) {
 		$s  = ( is_string( $status ) && ! empty( $status ) ) ? $status : $this->get_status();
 		$st = array(
-			'activated'     => __( 'activated', 'heartbeat-control' ),
-			'installed'     => __( 'installed', 'heartbeat-control' ),
-			'not_installed' => __( 'not installed', 'heartbeat-control' ),
+			'activated'     => __( 'activated' ),
+			'installed'     => __( 'installed' ),
+			'not_installed' => __( 'not installed' ),
 		);
 		if ( isset( $this->params['status_text'][ $s ] ) ) {
 			return $this->params['status_text'][ $s ];
@@ -289,9 +289,9 @@ class Plugin_Card_Helper {
 	public function get_button_text( $status = null ) {
 		$s  = ( is_string( $status ) && ! empty( $status ) ) ? $status : $this->get_status();
 		$bt = array(
-			'activated'     => __( 'Already activated', 'heartbeat-control' ),
-			'installed'     => __( 'Activate plugin', 'heartbeat-control' ),
-			'not_installed' => __( 'Install plugin', 'heartbeat-control' ),
+			'activated'     => __( 'Already activated' ),
+			'installed'     => __( 'Activate plugin' ),
+			'not_installed' => __( 'Install plugin' ),
 		);
 
 		if ( isset( $this->params['button_text'][ $s ] ) ) {
