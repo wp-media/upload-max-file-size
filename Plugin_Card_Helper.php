@@ -1,12 +1,12 @@
 <?php
 /**
- * Contains the Upload_Max_File_Size\Plugin_Card_Helper class.
+ * Contains the UMFS\Plugin_Card_Helper class.
  * This check plugin info from plugins_api and help to build a functional installation plugin card
  *
- * @package Upload_Max_File_Size
+ * @package UMFS
  */
 
-namespace Upload_Max_File_Size;
+namespace UMFS;
 
 defined( 'ABSPATH' ) || die( 'Cheatin\' uh?' );
 
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || die( 'Cheatin\' uh?' );
  * Class Plugin_Card_Helper
  * This check plugin info from plugins_api and help to build a functional installation plugin card
  *
- * @package Upload_Max_File_Size
+ * @package UMFS
  */
 class Plugin_Card_Helper {
 

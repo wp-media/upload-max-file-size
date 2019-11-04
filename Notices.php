@@ -1,13 +1,13 @@
 <?php
 /**
- * Contains the Upload_Max_File_Size\Notices class.
+ * Contains the UMFS\Notices class.
  *
  * Simple to use message flashbag for admin base on user_id.
  *
- * @package Upload_Max_File_Size
+ * @package UMFS
  */
 
-namespace Upload_Max_File_Size;
+namespace UMFS;
 
 defined( 'ABSPATH' ) || die( 'Cheatin\' uh?' );
 

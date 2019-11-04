@@ -5,7 +5,7 @@
  * @package wp-media/wp-imagify-partner
  */
 
-namespace Upload_Max_File_Size;
+namespace UMFS;
 
 defined( 'ABSPATH' ) || die( 'Cheatin\' uh?' );
 

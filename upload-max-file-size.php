@@ -252,4 +252,4 @@ class WF_Upload_Max_File_Size {
 	}
 }
 
-add_action( 'init', array( 'Upload_Max_File_Size\WF_Upload_Max_File_Size', 'init' ) );
+add_action( 'init', array( 'UMFS\WF_Upload_Max_File_Size', 'init' ) );
