@@ -56,6 +56,7 @@ Yes, it works with all servers. But, please know that server adjusted limits can
 == Changelog ==
 
 = v2.0 =
+* 2019/11/04
 * Revamp the settings page.
 
 = v1.35 =
