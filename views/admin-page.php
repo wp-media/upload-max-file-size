@@ -57,7 +57,7 @@ $plugins_block['imagify']->set_button_text(
 			<span class="nav-tab" data-tab="about-us" ><?php esc_html_e( 'About us', 'upload-max-file-size' ); ?></span>
 		</h2>
 	</div>
-	<div id="tab_general-settings" class="tab tab-active"><?php UMFS\WF_Upload_Max_File_Size::upload_max_file_size_form(); ?></div>
+	<div id="tab_general-settings" class="tab tab-active"><?php UMFS\Plugin::upload_max_file_size_form(); ?></div>
 <?php if ( ! $plugins_block['imagify']->is_activated() ) : ?>
 	<div id="tab_more-optimization" class="tab">
 		<div class="wrapper-content wrapper-intro">

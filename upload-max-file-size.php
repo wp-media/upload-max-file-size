@@ -16,13 +16,16 @@ define( 'UMFS_VERSION', '2.0' );
 define( 'UMFS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UMFS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-class WF_Upload_Max_File_Size {
+/**
+ * The primary plugin class.
+ */
+class Plugin {
 	/**
 	 * A array of plugin card.
 	 *
 	 * @var array of Plugin_Card_Helper Object
 	 */
-	static $plugins_block = array();
+	protected static $plugins_block = array();
 
 	/**
 	 * Plugin init.
@@ -253,4 +256,4 @@ class WF_Upload_Max_File_Size {
 	}
 }
 
-add_action( 'init', array( 'UMFS\WF_Upload_Max_File_Size', 'init' ) );
+add_action( 'init', array( 'UMFS\Plugin', 'init' ) );
