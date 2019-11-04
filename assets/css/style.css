@@ -787,7 +787,7 @@ b {
     line-height: 24px;
     font-weight: 700; }
 
-.wp-core-ui .button-primary {
+.wrapper-settings .button-primary {
   background: #40B1D0;
   border: none;
   text-shadow: none;
@@ -804,7 +804,7 @@ b {
   -ms-flex-align: center;
       align-items: center;
   transition: all .275s; }
-  .wp-core-ui .button-primary:hover {
+  .wrapper-settings .button-primary:hover {
     background: #1f2332 !important;
     -ms-transform: translateY(-2px);
         transform: translateY(-2px); }
