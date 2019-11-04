@@ -1,18 +1,11 @@
 <?php
-/**
- * Contains the UMFS\Plugin_Card_Helper class.
- * This check plugin info from plugins_api and help to build a functional installation plugin card
- *
- * @package UMFS
- */
-
 namespace UMFS;
 
 defined( 'ABSPATH' ) || die( 'Cheatin\' uh?' );
 
 /**
  * Class Plugin_Card_Helper
- * This check plugin info from plugins_api and help to build a functional installation plugin card
+ * This check plugin info from plugins_api and help to build a functional installation plugin card.
  *
  * @package UMFS
  */
