@@ -19,7 +19,7 @@ class WF_Upload_Max_File_Size {
 	 *
 	 * @var array of Plugin_Card_Helper Object
 	 */
-	protected $plugins_block = array();
+	static $plugins_block = array();
 
 	/**
 	 * Plugin init.
