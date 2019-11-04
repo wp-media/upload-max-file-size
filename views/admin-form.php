@@ -42,14 +42,8 @@
 					<td>
 						<select id="upload_max_file_size_field" name="upload_max_file_size_field">';
 						<?php foreach ( $upload_sizes as $size ) : ?>
-							<option value="<?php echo $size; ?>"
-							<?php
-							if ( $size === $current_max_size ) {
-								echo ' selected';
-							}
-							?>
-							>
-								<?php echo ( ( 1024 === $size ) ? '1GB' : $size . 'MB' ); ?>
+							<option value="<?php echo $size; ?>" <?php selected( $size, $current_max_size ); ?>>
+								<?php echo ( 1024 === $size ) ? '1GB' : $size . 'MB'; ?>
 							</option>';
 						<?php endforeach; ?>
 						</select>
