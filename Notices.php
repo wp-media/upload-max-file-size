@@ -29,7 +29,7 @@ class Notices {
 	 * @var string
 	 * @access protected
 	 */
-	protected $transient = 'upload-max-file-size_notices';
+	protected $transient;
 
 	/**
 	 * Store notices.
@@ -64,16 +64,11 @@ class Notices {
 
 	/**
 	 * Constructor.
-	 *
-	 * @param string $transient overwrite default transient value.
 	 */
-	public function __construct( $transient = null ) {
-		if ( ! is_null( $transient ) ) {
-			$this->transient = $transient;
-		}
-
-		$this->notices = get_transient( $this->transient );
-		$this->user_id = get_current_user_id();
+	public function __construct() {
+		$this->transient = basename( plugin_dir_path( __FILE__ ) ) . '_notices';
+		$this->notices   = get_transient( $this->transient );
+		$this->user_id   = get_current_user_id();
 	}
 
 	/**
@@ -109,7 +104,7 @@ class Notices {
 
 			if ( isset( $notices[ $this->user_id ] ) ) {
 				foreach ( $notices[ $this->user_id ] as $n ) {
-					echo '<div class="notice notice-' . esc_attr( $n['class'] ) . ' is-dismissible"><p>' . $n['notice'] . '</p></div>'; // phpcs:ignore WordPress.Security.EscapeOutput
+					echo '<div class="notice notice-' . esc_attr( $n['class'] ) . ' is-dismissible"><p><strong>' . esc_html( $n['notice'] ) . '</strong></p></div>'; // phpcs:ignore WordPress.Security.EscapeOutput
 				}
 
 				if ( $trash ) {

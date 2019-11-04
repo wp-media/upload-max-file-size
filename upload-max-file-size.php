@@ -135,9 +135,7 @@ class Plugin {
 			$max_size = (int) $_POST['upload_max_file_size_field'] * 1024 * 1024;
 
 			if ( update_option( 'max_file_size', $max_size ) ) {
-				$notices->append( 'success', __( 'Maximum upload file size saved &amp; changed!', 'upload-max-file-size' ) );
-			} else {
-				$notices->append( 'error', __( 'Maximum upload file size has not changed!', 'upload-max-file-size' ) );
+				$notices->append( 'success', __( 'Settings saved.' ) );
 			}
 		}
 	}

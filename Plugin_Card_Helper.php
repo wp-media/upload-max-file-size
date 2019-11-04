@@ -479,10 +479,8 @@ class Plugin_Card_Helper {
 			$notices->append(
 				'success',
 				sprintf(
-					// translators: %1$s %2$s: bold markup, %3$s: plugin title.
-					esc_html__( '%1$s%3$s%2$s has been successfully installed and activated.' ),
-					'<strong>',
-					'</strong>',
+					// translators: %1$s: plugin title.
+					esc_html__( '%1$s has been successfully installed and activated.' ),
 					$this->get_title()
 				)
 			);
@@ -490,10 +488,8 @@ class Plugin_Card_Helper {
 			$notices->append(
 				'success',
 				sprintf(
-					// translators: %1$s %2$s: bold markup, %3$s: plugin title.
-					esc_html__( '%1$s%3$s%2$s has been successfully installed.' ),
-					'<strong>',
-					'</strong>',
+					// translators: %1$s: plugin title.
+					esc_html__( '%1$s has been successfully installed.' ),
 					$this->get_title()
 				)
 			);
@@ -528,10 +524,8 @@ class Plugin_Card_Helper {
 		$notices->append(
 			'success',
 			sprintf(
-				// translators: %1$s %2$s: bold markup, %3$s: plugin title.
-				esc_html__( '%1$s%3$s%2$s has been successfully activated.' ),
-				'<strong>',
-				'</strong>',
+				// translators: %1$s: plugin title.
+				esc_html__( '%1$s has been successfully activated.' ),
 				$this->get_title()
 			)
 		);
