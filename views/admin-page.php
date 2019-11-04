@@ -3,23 +3,26 @@
  * Admin Page view
  */
 
-defined('ABSPATH') || die('Cheatin\' uh?');
+defined( 'ABSPATH' ) || die( 'Cheatin\' uh?' );
+
 global $wp_version;
 $heading_tag = version_compare( $wp_version, '4.3' ) >= 0 ? 'h1' : 'h2';
 $notices->echo_notices();
-$plugins_block['imagify']->set_button_text( array(
-	'activated'     => esc_html__( 'Activated', 'upload-max-file-size' ),
-	'installed'     => esc_html__( 'Activate now', 'upload-max-file-size' ),
-	'not_installed' => esc_html__( 'Install now', 'upload-max-file-size' ),
-) );
+$plugins_block['imagify']->set_button_text(
+	array(
+		'activated'     => esc_html__( 'Activated', 'upload-max-file-size' ),
+		'installed'     => esc_html__( 'Activate now', 'upload-max-file-size' ),
+		'not_installed' => esc_html__( 'Install now', 'upload-max-file-size' ),
+	)
+);
 ?>
 <div class="wrap">
 	<div class="heartbeat-control-settings">
-		<<?php echo $heading_tag; ?> class="screen-reader-text"><?php echo esc_html( get_admin_page_title() ); ?></<?php echo $heading_tag; ?>>
+		<<?php echo $heading_tag; // phpcs:ignore WordPress.Security.EscapeOutput ?> class="screen-reader-text"><?php echo esc_html( get_admin_page_title() ); ?></<?php echo $heading_tag; // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<div class="header">
 		<div class="header-left">
 			<div class="visuel">
-				<img src="<?php echo $asset_image_url . 'logo.svg' ?>" alt="">
+				<img src="<?php echo $asset_image_url . 'logo.svg'; ?>" alt="">
 			</div>
 		</div>
 		<div class="header-right">
@@ -27,7 +30,8 @@ $plugins_block['imagify']->set_button_text( array(
 			<div class="txt-2">
 				<?php
 				printf(
-					__( 'Please, take a few seconds to %1$srate it on WordPress.org%2$s', 'upload-max-file-size' ),
+					// translators: %1$s %2$s: link markup.
+					esc_html__( 'Please, take a few seconds to %1$srate it on WordPress.org%2$s', 'upload-max-file-size' ),
 					'<a href="https://wordpress.org/support/plugin/upload-max-file-size/reviews/?filter=5"><strong>',
 					'</strong></a>'
 				);
@@ -47,14 +51,14 @@ $plugins_block['imagify']->set_button_text( array(
 	<div class="wrapper-nav">
 		<h2 class="nav-tab-wrapper">
 			<span class="nav-tab nav-tab-active" data-tab="general-settings"><?php esc_html_e( 'General settings', 'upload-max-file-size' ); ?></span>
-<?php if( ! $plugins_block['imagify']->is_activated() ): ?>
+<?php if ( ! $plugins_block['imagify']->is_activated() ) : ?>
 			<span class="nav-tab" data-tab="more-optimization"><?php esc_html_e( 'More optimization', 'upload-max-file-size' ); ?></span>
 <?php endif; ?>
 			<span class="nav-tab" data-tab="about-us" ><?php esc_html_e( 'About us', 'upload-max-file-size' ); ?></span>
 		</h2>
 	</div>
 	<div id="tab_general-settings" class="tab tab-active"><?php UMFS\WF_Upload_Max_File_Size::upload_max_file_size_form(); ?></div>
-<?php if( !$plugins_block['imagify']->is_activated() ): ?>
+<?php if ( ! $plugins_block['imagify']->is_activated() ) : ?>
 	<div id="tab_more-optimization" class="tab">
 		<div class="wrapper-content wrapper-intro">
 			<div class="wrapper-left">
@@ -62,12 +66,16 @@ $plugins_block['imagify']->set_button_text( array(
 					<img src="<?php echo $asset_image_url . 'Imagify-Logo-Gray-Colored.svg'; ?>" alt="">
 				</div>
 				<div class="wrapper-txt">
-						<?php
-							printf(
-								__( '%1$sLooking for more optimization?%2$s %1$sThen you should use %3$sImagify%4$s to speed up your website with %3$slighter images.%4$s Our algorithms will reduce the weight of your images without sacrificing their quality.%2$s', 'upload-max-file-size' ),
-								'<p>', '</p>', '<strong>', '</strong>'
-							);
-						?>
+					<p>
+					<?php
+					printf(
+						// translators: %1$s %2$s: bold markup.
+						esc_html__( 'Looking for more optimization?%2$s %1$sThen you should use %3$sImagify%4$s to speed up your website with %3$slighter images.%4$s Our algorithms will reduce the weight of your images without sacrificing their quality.', 'upload-max-file-size' ),
+						'<strong>',
+						'</strong>'
+					);
+					?>
+					</p>
 				</div>
 				<a class="btn referer-link <?php echo esc_attr( $plugins_block['imagify']->get_status() ); ?>" href="<?php echo $plugins_block['imagify']->get_install_url(); ?>">
 					<?php echo $plugins_block['imagify']->get_button_text(); ?>
@@ -90,10 +98,12 @@ $plugins_block['imagify']->set_button_text( array(
 						</div>
 						<div class="txt-title">
 							<?php
-								printf(
-									__( '%1$sSpeed up your websites%2$s', 'upload-max-file-size' ),
-									'<strong>', '</strong>'
-								);
+							printf(
+								// translators: %1$s %2$s: bold markup.
+								esc_html__( '%1$sSpeed up your websites%2$s', 'upload-max-file-size' ),
+								'<strong>',
+								'</strong>'
+							);
 							?>
 						</div>
 						<div class="txt">
@@ -106,10 +116,12 @@ $plugins_block['imagify']->set_button_text( array(
 						</div>
 						<div class="txt-title">
 							<?php
-								printf(
-									__( '%1$sSave time%2$s', 'upload-max-file-size' ),
-									'<strong>', '</strong>'
-								);
+							printf(
+								// translators: %1$s %2$s: bold markup.
+								esc_html__( '%1$sSave time%2$s', 'upload-max-file-size' ),
+								'<strong>',
+								'</strong>'
+							);
 							?>
 						</div>
 						<div class="txt">
@@ -122,10 +134,12 @@ $plugins_block['imagify']->set_button_text( array(
 						</div>
 						<div class="txt-title">
 							<?php
-								printf(
-									__( '%1$sOptimize every format%2$s', 'upload-max-file-size' ),
-									'<strong>', '</strong>'
-								);
+							printf(
+								// translators: %1$s %2$s: bold markup.
+								esc_html__( '%1$sOptimize every format%2$s', 'upload-max-file-size' ),
+								'<strong>',
+								'</strong>'
+							);
 							?>
 						</div>
 						<div class="txt">
@@ -138,10 +152,12 @@ $plugins_block['imagify']->set_button_text( array(
 						</div>
 						<div class="txt-title">
 							<?php
-								printf(
-									__( '%1$sDon\'t sacrifice quality%2$s', 'upload-max-file-size' ),
-									'<strong>', '</strong>'
-								);
+							printf(
+								// translators: %1$s %2$s: bold markup.
+								esc_html__( '%1$sDon\'t sacrifice quality%2$s', 'upload-max-file-size' ),
+								'<strong>',
+								'</strong>'
+							);
 							?>
 						</div>
 						<div class="txt">
@@ -163,10 +179,12 @@ $plugins_block['imagify']->set_button_text( array(
 				<div class="compare-imgs-txt-left">
 					<p>
 						<?php
-							printf(
-								__( 'Level : %1$sOriginal%2$s', 'upload-max-file-size' ),
-								'<strong>', '</strong>'
-							);
+						printf(
+							// translators: %1$s %2$s: bold markup.
+							esc_html__( 'Level : %1$sOriginal%2$s', 'upload-max-file-size' ),
+							'<strong>',
+							'</strong>'
+						);
 						?>
 					</p>
 					<p>
@@ -179,10 +197,12 @@ $plugins_block['imagify']->set_button_text( array(
 					</p>
 					<p>
 						<?php
-							printf(
-								__( 'File Size : %1$s175kb%2$s', 'upload-max-file-size' ),
-								'<strong>', '</strong>'
-							);
+						printf(
+							// translators: %1$s %2$s: bold markup.
+							esc_html__( 'File Size : %1$s175kb%2$s', 'upload-max-file-size' ),
+							'<strong>',
+							'</strong>'
+						);
 						?>
 					</p>
 					<p>
@@ -194,10 +214,11 @@ $plugins_block['imagify']->set_button_text( array(
 		<div class="wrapper-content wrapper-install">
 			<div class="txt">
 				<?php
-					printf(
-						__( 'Compress your images in one click with%1$s the Imagify WordPress plugin', 'upload-max-file-size' ),
-						'<br>', '</strong>'
-					);
+				printf(
+					// translators: %1$s: break line.
+					esc_html__( 'Compress your images in one click with%1$s the Imagify WordPress plugin', 'upload-max-file-size' ),
+					'<br>'
+				);
 				?>
 			</div>
 			<div class="install-btn">
