@@ -12,6 +12,7 @@
 
 namespace UMFS;
 
+define( 'UMFS_VERSION', '2.0' );
 define( 'UMFS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UMFS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -171,16 +172,16 @@ class WF_Upload_Max_File_Size {
 			return;
 		}
 
-		wp_register_style( 'umfs_admin_style', UMFS_PLUGIN_URL . 'assets/css/style.min.css', array(), '1.0' );
+		wp_register_style( 'umfs_admin_style', UMFS_PLUGIN_URL . 'assets/css/style.min.css', array(), UMFS_VERSION );
 		wp_enqueue_style( 'umfs_admin_style' );
-		wp_register_script( 'umfs_admin_event', UMFS_PLUGIN_URL . 'assets/js/jquery.event.move.js', array( 'jquery' ), '1.0.0', false );
+		wp_register_script( 'umfs_admin_event', UMFS_PLUGIN_URL . 'assets/js/jquery.event.move.js', array( 'jquery' ), UMFS_VERSION, false );
 		wp_enqueue_script( 'umfs_admin_event' );
-		wp_register_script( 'umfs_admin_twenty', UMFS_PLUGIN_URL . 'assets/js/jquery.twentytwenty.js', array( 'jquery' ), '1.0.0', false );
+		wp_register_script( 'umfs_admin_twenty', UMFS_PLUGIN_URL . 'assets/js/jquery.twentytwenty.js', array( 'jquery' ), UMFS_VERSION, false );
 		wp_enqueue_script( 'umfs_admin_twenty' );
-		wp_register_script( 'umfs_admin_test', UMFS_PLUGIN_URL . 'assets/js/imagesLoaded.js', array( 'jquery' ), '1.0.0', false );
+		wp_register_script( 'umfs_admin_test', UMFS_PLUGIN_URL . 'assets/js/imagesLoaded.js', array( 'jquery' ), UMFS_VERSION, false );
 		wp_enqueue_script( 'umfs_admin_test' );
 
-		wp_register_script( 'umfs_admin_script', UMFS_PLUGIN_URL . 'assets/js/script.js', array( 'jquery' ), '1.0.0', true );
+		wp_register_script( 'umfs_admin_script', UMFS_PLUGIN_URL . 'assets/js/script.js', array( 'jquery' ), UMFS_VERSION, true );
 		wp_enqueue_script( 'umfs_admin_script' );
 	}
 
