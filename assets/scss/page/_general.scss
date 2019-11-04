@@ -17,7 +17,7 @@
 }
  */
 
-.heartbeat-control-settings {
+.wrapper-settings {
     width: 860px;
     overflow: hidden;
     margin-top: 20px;
@@ -42,7 +42,7 @@
     }
     &:after {
         content: "";
-    }    
+    }
     .nav-tab {
         background: #fff;
         border: none;
@@ -134,5 +134,5 @@ b {
             margin-left: 5px;
         }
     }
-    
+
 }

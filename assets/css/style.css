@@ -369,12 +369,12 @@ COLORS
     left: 0;
 }
  */
-.heartbeat-control-settings {
+.wrapper-settings {
   width: 860px;
   overflow: hidden;
   margin-top: 20px; }
   @media only screen and (max-width: 860px) {
-    .heartbeat-control-settings {
+    .wrapper-settings {
       width: 100%; } }
 
 .wrapper-nav {
