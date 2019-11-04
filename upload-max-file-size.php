@@ -61,21 +61,53 @@ class Plugin {
 			'rocket-lazy-load'  => new Plugin_Card_Helper(
 				array(
 					'plugin_slug' => 'rocket-lazy-load',
+					'params'      => array(
+						'title' => 'LazyLoad',
+					),
 				)
 			),
 			'heartbeat-control' => new Plugin_Card_Helper(
 				array(
 					'plugin_slug' => 'heartbeat-control',
+					'params'      => array(
+						'title'       => 'Heartbeat Control',
+						'description' => sprintf(
+							// translators: %1$s %2$s: bold markup.
+							esc_html__( 'Helps you control the WordPress Heartbeat API and %1$sreduce CPU usage%2$s.', 'upload-max-file-size' ),
+							'<strong>',
+							'</strong>'
+						),
+					),
 				)
 			),
 			'wp-rocket'         => new Plugin_Card_Helper(
 				array(
 					'plugin_slug' => 'wp-rocket',
+					'params'      => array(
+						'icon'        => '<img src="' . UMFS_PLUGIN_URL . 'assets/img/logo-rocket.jpg" alt="">',
+						'title'       => 'WP Rocket',
+						'description' => sprintf(
+							// translators: %1$s %2$s: link markup.
+							esc_html__( 'Integrate more than 80&#x25; of web performance good practices automatically to %1$sreduce your website\'s loading time.%2$s', 'upload-max-file-size' ),
+							'<strong>',
+							'</strong>'
+						),
+					),
 				)
 			),
 			'imagify'           => new Plugin_Card_Helper(
 				array(
 					'plugin_slug' => 'imagify',
+					'params'      => array(
+						'title'       => 'Imagify',
+						'description' => sprintf(
+							// translators: %1$s: line break, %2$s %3$s: bold markup.
+							esc_html__( '%2$sReduces image file sizes%3$s without losing quality.%1$sBy compressing your images you speed up your website and boost your SEO.', 'upload-max-file-size' ),
+							'<br>',
+							'<strong>',
+							'</strong>'
+						),
+					),
 				),
 				array(
 					'imagify_partner' => $imagify_partner,

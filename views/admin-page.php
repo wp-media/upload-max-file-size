@@ -8,13 +8,6 @@ defined( 'ABSPATH' ) || die( 'Cheatin\' uh?' );
 global $wp_version;
 $heading_tag = version_compare( $wp_version, '4.3' ) >= 0 ? 'h1' : 'h2';
 $notices->echo_notices();
-$plugins_block['imagify']->set_button_text(
-	array(
-		'activated'     => esc_html__( 'Activated', 'upload-max-file-size' ),
-		'installed'     => esc_html__( 'Activate now', 'upload-max-file-size' ),
-		'not_installed' => esc_html__( 'Install now', 'upload-max-file-size' ),
-	)
-);
 ?>
 <div class="wrap">
 	<div class="heartbeat-control-settings">

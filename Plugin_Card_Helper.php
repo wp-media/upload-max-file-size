@@ -114,22 +114,6 @@ class Plugin_Card_Helper {
 	);
 
 	/**
-	 * Store a callback to overwrite default templating behavior.
-	 *
-	 * @var callable
-	 * @access protected
-	 */
-	protected $helper_callback;
-
-	/**
-	 * Store and pass variables to the template.
-	 *
-	 * @var array
-	 * @access protected
-	 */
-	protected $template_args;
-
-	/**
 	 * Is this card have been initialised.
 	 *
 	 * @var boolean
@@ -143,10 +127,9 @@ class Plugin_Card_Helper {
 	 * Else in some context install and activation route will not be register.
 	 *
 	 * @param  array $args          Required index plugin_slug. Use this array to pass param (force_activation active and install).
-	 * @param  mixed $template_args What ever param you want to pass for the template.
 	 * @return void
 	 */
-	public function __construct( $args = null, $template_args = null ) {
+	public function __construct( $args = null ) {
 		$this->args = wp_parse_args(
 			$args,
 			array(
@@ -160,7 +143,10 @@ class Plugin_Card_Helper {
 		}
 
 		$this->plugin_slug   = preg_replace( '@[^a-z0-9_-]@', '', strtolower( (string) $this->args['plugin_slug'] ) );
-		$this->template_args = $template_args;
+
+		if ( isset( $this->args['params'] ) ) {
+			$this->params = wp_parse_args( $this->args['params'], $this->params );
+		}
 
 		if ( ! $this->is_installed() ) {
 			add_action( 'admin_post_install_plugin_' . $this->plugin_slug, array( $this, 'install_callback' ) );
@@ -458,18 +444,6 @@ class Plugin_Card_Helper {
 		}
 	}
 
-	/**
-	 * Override helper default behavior with a callable.
-	 *
-	 * @param  callable $callback The callable.
-	 * @return void
-	 */
-	public function set_helper_callback( $callback ) {
-		if ( is_callable( $callback ) ) {
-			$this->helper_callback = $callback;
-		}
-	}
-
 	// -- Install and activation route and logic
 
 	/**
@@ -610,11 +584,7 @@ class Plugin_Card_Helper {
 			ob_start();
 		}
 
-		if ( is_callable( $this->helper_callback ) ) {
-			call_user_func( $this->helper_callback, $this );
-		} else {
-			$this->default_helper();
-		}
+		$this->render_helper();
 
 		if ( false === $echo ) {
 			$r = ob_get_contents();
@@ -628,20 +598,31 @@ class Plugin_Card_Helper {
 	 *
 	 * @return void
 	 */
-	protected function default_helper() {
-		$template_args = $this->template_args;
-		$helper        = $this;
-		$file_paths    = array(
-			plugin_dir_path( __FILE__ ) . 'views/plugin-cards/' . $this->plugin_slug . '.php',
-			plugin_dir_path( __FILE__ ) . 'views/plugin-cards/default.php',
-		);
-
-		foreach ( $file_paths as $fp ) {
-			if ( file_exists( $fp ) ) {
-				include $fp;
-				break;
-			}
-		}
+	protected function render_helper() { ?>
+		<div class="card single-link">
+			<div class="link-infos">
+				<div class="link-infos-logo"><?php echo $this->get_icon(); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+				<span class="link-infos-txt">
+					<h3><?php echo esc_html( $this->get_title() ); ?></h3>
+					<p>
+					<?php
+					printf(
+						// translators: %1$s: status (not installed, installed or activated).
+						esc_html__( 'Status : %1$s' ),
+						esc_html( $this->get_status_text() )
+					);
+					?>
+					</p>
+				</span>
+			</div>
+			<div class="link-content"><?php echo $this->get_description(); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+			<?php if ( 'activated' === $this->get_status() ) : ?>
+				<span class="wrapper-infos-active"><span class="dashicons dashicons-yes"></span><span class="info-active"><?php echo esc_html( $this->get_button_text() ); ?></span></span>
+			<?php else : ?>
+				<a class="link-btn button-primary referer-link <?php echo esc_attr( $this->get_status() ); ?>" href="<?php echo esc_url( $this->get_install_url() ); ?>"><?php echo esc_html( $this->get_button_text() ); ?></a>
+			<?php endif; ?>
+		</div>
+	<?php
 	}
 
 	// -- tools
