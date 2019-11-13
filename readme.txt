@@ -55,6 +55,10 @@ Yes, it works with all servers. But, please know that server adjusted limits can
 
 == Changelog ==
 
+= v2.0.2 =
+* 2019/11/13
+* Fix: The plugin does not have a valid header.
+
 = v2.0.1 =
 * 2019/11/13
 * Regression fix: Avoid auto-deactivation after upgrading to 2.0.

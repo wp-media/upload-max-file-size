@@ -5,14 +5,14 @@
  * Author: Imagify
  * Author URI: https://wordpress.org/plugins/imagify/
  * Plugin URI: https://wordpress.org/plugins/upload-max-file-size/
- * Version: 2.0.1
+ * Version: 2.0.2
  * License: GPL2
  * Text Domain: upload-max-file-size
  */
 
 namespace UMFS;
 
-define( 'UMFS_VERSION', '2.0.1' );
+define( 'UMFS_VERSION', '2.0.2' );
 define( 'UMFS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UMFS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
