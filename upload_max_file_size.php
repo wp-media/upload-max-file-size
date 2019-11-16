@@ -5,7 +5,7 @@
  * Author: Imagify
  * Author URI: https://wordpress.org/plugins/imagify/
  * Plugin URI: https://wordpress.org/plugins/upload-max-file-size/
- * Version: 2.0.3
+ * Version: 2.0.4
  * License: GPL2
  * Text Domain: upload-max-file-size
  */

@@ -5,14 +5,14 @@
  * Author: Imagify
  * Author URI: https://wordpress.org/plugins/imagify/
  * Plugin URI: https://wordpress.org/plugins/upload-max-file-size/
- * Version: 2.0.3
+ * Version: 2.0.4
  * License: GPL2
  * Text Domain: upload-max-file-size
  */
 
 namespace UMFS;
 
-define( 'UMFS_VERSION', '2.0.3' );
+define( 'UMFS_VERSION', '2.0.4' );
 define( 'UMFS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UMFS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -40,6 +40,7 @@ class Plugin {
 
 			self::init_card();
 			self::process_settings();
+			self::maybe_force_activation();
 		}
 
 		add_filter( 'upload_size_limit', array( __CLASS__, 'upload_max_increase_upload' ) );
@@ -286,6 +287,26 @@ class Plugin {
 		}
 
 		return $max_size;
+	}
+
+	/**
+	 * Force activation to the right plugin file to avoid double headers after upgrading to 2.0.X.
+	 *
+	 * @return void
+	 */
+	public static function maybe_force_activation() {
+		if ( ! is_admin() ) {
+			return;
+		}
+
+		if ( ! is_plugin_active( 'upload-max-file-size/upload-max-file-size.php' ) ) {
+			activate_plugin( 'upload-max-file-size/upload-max-file-size.php' );
+		}
+
+		if ( is_plugin_active( 'upload-max-file-size/upload-max-file-size.php' ) && file_exists( UMFS_PLUGIN_PATH . 'upload_max_file_size.php' ) ) {
+			@unlink( UMFS_PLUGIN_PATH . 'upload_max_file_size.php' );
+			wp_safe_redirect( admin_url( 'plugins.php' ) );
+		}
 	}
 }
 
