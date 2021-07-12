@@ -5,3 +5,4 @@
 
 .distignore
 .gitattributes
+phpcs.xml
