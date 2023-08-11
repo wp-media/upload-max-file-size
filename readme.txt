@@ -52,6 +52,9 @@ Or if needed, install manually;
 
 Yes, it works with all servers. But, please know that server adjusted limits can't be changed from a WordPress plugin. If the server set limit is 16MB you can't increase it to 128MB via WordPress. You have to email your hosting provider and ask them to increase the limit. Install the plugin and it'll tell you what the limits are and what to do.
 
+= Where do I report security bugs found in this plugin? =  
+  
+You can report any security bugs found in the source code of the site-reviews plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/upload-max-file-size). The Patchstack team will assist you with verification, CVE assignment and take care of notifying the developers of this plugin.
 
 == Changelog ==
 
